@@ -1,3 +1,5 @@
 #PHPstorm project conf. files
 .idea
 
+public/.sass-cache
+
