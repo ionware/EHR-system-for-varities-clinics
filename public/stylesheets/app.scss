@@ -1,0 +1,335 @@
+@import "foundation/foundation";
+@import "colors";
+
+@include foundation-global-styles();
+@include foundation-grid();
+@include foundation-typography();
+
+
+.full-width{
+  max-width: 100%;
+}
+.full-height{
+  height: 100%;
+}
+.clearfix{
+  clear: both;
+}
+input, textarea{
+  font-family: inherit;
+  font-weight: 300;
+}
+/***
+*NAVIGATION CLASSES
+**/
+.navbar{
+height: 75px;
+  background-color: rgba(217, 221, 222, 0.92);
+  box-shadow: 0 2px 3px darken(#ECF0F1, 4%);
+  .logo{
+    float: left;
+    width: 70px;
+    height: 60px;
+    padding: 5px;
+    & img{
+      height: 60px;
+      width: 60px;
+    }
+  }
+  & > .search{
+    display: inline-block;
+    margin-left: 25%;
+    padding-top: 18px;
+      & input{
+        font-weight: normal;
+        color: $primary-color;
+        height: 35px;
+        border: 1px solid $primary-color;
+        padding: 5px;
+        border-radius: 5px 0 0 5px;
+      }
+      & button {
+        background-color: $primary-color;
+        color: #fff;
+        padding: 5px;
+        margin-left: -4px;
+        height: 37px;
+        width: 40px;
+        border-radius: 0 5px 5px 0;
+        transition: background-color .3s linear;
+        &:hover{
+          background-color: $primary-color;
+          transition: background-color .4s linear;
+        }
+      }
+  }
+  & > .nav{
+    padding: 0;
+    list-style-type: none;
+    float: right;
+    height: 100%;
+    li{
+      list-style-type: none;
+      display: inline-block;
+      margin: 0 10px 0 10px;
+      height: 100%;
+      font-weight: bold;
+      font-size: .89em;
+      padding: 25px 10px 10px 10px;
+      color: $primary-color;
+      transition: border-bottom .4s linear;
+      & i{
+        font-size: 1.5em !important;
+      }
+        &:hover{
+          border-bottom: 4px solid $primary-color;
+          transition: border-bottom .3s ease-in-out;
+        }
+    }
+    & .logout{
+      list-style-type: none;
+      display: inline-block;
+      margin: 0 10px 0 10px;
+      height: 100%;
+      font-weight: bold;
+      font-size: .89em;
+      padding: 25px 10px 10px 10px;
+      color: $primary-color;
+      &:hover{
+        border: none;
+      }
+    }
+    .active {
+      border-bottom: 4px solid $primary-color;
+    }
+  }
+
+}
+.navbar-fixed{
+  position: fixed;
+}
+
+.menu{
+  list-style-type: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+
+  & li{
+    width: 100%;
+    padding: 15px 10px 15px 10px;
+    border-bottom: 1px solid darken(#fff, 10%);
+    font-weight: bold;
+    color: $primary-color;
+    position: relative;
+    transition: transform .3s linear, backgroud-color .3s ease-in, color .2s linear;
+    &:hover{
+        background-color: $primary-color;
+        color: #fff;
+        padding: 15px 10px 15px 30px;
+        transform: scale(1.03);
+        transition: transform .3s linear, backgroud-color .3s ease-in, color .2s linear;
+      }
+      & i{
+        font-size: 1.6em !important;
+        margin-right: 5px;
+        padding-right: 3px;
+      }
+  }
+
+  & .active {
+    //background-color: $secondary-color;
+    //color: #fff;
+    padding: 20px 10px 20px 50px;
+      &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        right: -1px; top: 20px;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid $primary-color;
+      }
+    &:hover{
+      background-color: transparent;
+      color: $primary-color;
+      transform: none;
+    }
+  }
+
+}
+/*
+*REUSEABLE COMPONENETS
+*/
+
+//Base-Colors
+.bg-primary{
+  background-color: $primary-color;
+  color: #fff;
+}
+.bg-secondary{
+  background-color: $primary-color;
+  color: #fff;
+
+}
+.bg-asphalt{
+  background-color: #34495E;
+  color: #fff;
+}
+.bg-cloud{
+  background-color: #ECF0F1;
+}
+.fg-primary{
+  color: $primary-color;
+}
+.fg-secondary{
+ color: $primary-color;
+}
+
+
+/*
+*Padding Classes and Margins
+*/
+
+//Paddings
+.pad-xs{
+  padding: 5px;
+}
+.pad-sm{
+  padding: 10px;
+}
+.pad-md{
+  padding: 15px;
+}
+.pad-lg{
+  padding: 25px;
+}
+.pad-xl{
+  padding: 35px;
+}
+.pad-tb-sm{
+  padding: 10px 0 10px 0;
+}
+.pad-tb-md{
+  padding: 15px 0 15px 0;
+}
+.pad-tb-lg{
+  padding: 25px 0 25px 0;
+}
+.pad-tb-xl {
+  padding: 35px 0 35px 0;
+}
+.pad-lr-sm{
+  padding: 0 10px 0 10px;
+}
+.pad-lr-md{
+  padding: 0 15px 0 15px;
+}
+.pad-lr-lg{
+  padding: 0 25px 0 25px;
+}
+.no-pad{
+  padding: 0;
+}
+//margins
+.margin-sm{
+  margin: 10px 0 10px 0;
+}
+.margin-md{
+  margin: 15px 0 15px 0;
+}
+.margin-lg{
+  margin: 20px 0 20px 0;
+}
+.margin-top-sm{
+  margin-top: 10px;
+}
+.margin-top-md{
+  margin-top: 15px;
+}
+.margin-top-lg{
+  margin-top: 20px;
+}
+.margin-bottom-sm{
+  margin-bottom: 10px;
+}
+.margin-bottom-md{
+  margin-bottom: 15px;
+}
+.margin-bottom-lg{
+  margin-bottom: 20px;
+}
+
+//Boxes Varieties
+.box-border-seamless{
+  border: 1px solid darken(#ECF0F1, 5%);
+}
+
+.box-shadow-right{
+  box-shadow: 1px 3px 4px darken(#ECF0F1, 10%);
+}
+.box-shadow-all{
+  box-shadow: 1px 3px 4px darken(#ECF0F1, 10%), -1px -3px 4px darken(#ECF0F1, 10%);
+}
+.rad-sm{
+  border-radius: 5px;
+}
+.rad-md{
+  border-radius: 10px;
+}
+.rad-lg{
+  border-radius: 15px;
+}
+.rad-all{
+  border-radius: 50%;
+}
+
+//Inputs
+.field{
+  border: 1px solid $primary-color;
+  padding: 5px 5px 5px 10px;
+  color: $primary-color;
+  width: 100%;
+}
+.field2{
+  padding: 5px 5px 5px 10px;
+  border: 0 solid #fff;
+  background-color: rgba(223, 227, 228, 0.95);
+  color: lighten(#000, 50%);
+  width: 100%;
+}
+.btn-primary{
+  background-color: $primary-color;
+  color: #fff;
+  height: 30px;
+  font-weight: bold;
+  transition: background-color .3s linear;
+  &:hover, &:focus{
+    background-color: darken($primary-color, 10%);
+    transition: background-color .3s ease-in-out;
+  }
+}
+.btn-secondary{
+  background-color: $primary-color;
+  color: #fff;
+  height: 30px;
+  font-weight: bold;
+  transition: background-color .3s linear;
+  &:hover, &:focus {
+    background-color: darken($primary-color, 10%);
+    transition: background-color .3s ease-in-out;
+  }
+}
+.btn-sm{
+  width: 25%;
+}
+.btn-md{
+  width: 45%;
+}
+.btn-lg{
+  width: 75%;
+}
+.btn-block{
+  display: block;
+  width: 100%;
+}
