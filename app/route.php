@@ -1,7 +1,12 @@
 <?php
 
-$route->get("//", "Guest@index");
-$route->get("index", "Guest@index");
-$route->get("hello", "Guest@index");
+$route->get("", "GuestController@index");
+$route->get("index", "GuestController@index");
+$route->post("verify", "GuestController@verify");
 
-$route->get("home/index", "Home@index");
+/*
+ * Controllers for logged In Clinicians
+ *
+ * */
+$route->get("home", "HomeController@index");
+$route->get("home/logout", "HomeController@logout");

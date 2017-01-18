@@ -10,7 +10,7 @@ function view($view, $data){
 
         @extract($data);
 
-    } catch(Exception $e){
+    } catch(Exception $e) {
 
         //Pass silently cuz there's no data.
     }
@@ -22,5 +22,14 @@ function dd($data){
     //Similar to Laravel's dieANDdump function.
 
     die(var_dump($data));
+
+}
+
+function Redirect($to)
+{
+    //Sends a new header
+
+    header("Location: " . $to);
+    exit();
 
 }

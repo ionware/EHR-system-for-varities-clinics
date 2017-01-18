@@ -22,10 +22,10 @@
         <img src="../images/logo.png" alt="logo.png">
     </div>
     <ul class="nav">
-        <a href="index.php"><li class="active"><i class="fa fa-home"></i> Home</li></a>
-        <a href="feedback.php"><li><i class="fa fa-bell-o"></i> Feedback</li></a>
-        <a href="setting.php"><li><i class="fa fa-cog"></i> Settings</li></a>
-        <a href="logout.php"><li class="logout"><i class="fa fa-sign-out"></i> Logout</li></a>
+        <a href="home"><li class="active"><i class="fa fa-home"></i> Home</li></a>
+        <a href="home/feedback"><li><i class="fa fa-bell-o"></i> Feedback</li></a>
+        <a href="home/setting"><li><i class="fa fa-cog"></i> Settings</li></a>
+        <a href="home/logout"><li class="logout"><i class="fa fa-sign-out"></i> Logout</li></a>
     </ul>
 
     <div class="search">

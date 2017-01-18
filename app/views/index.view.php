@@ -24,7 +24,7 @@
     <div class="row">
         <div class="small-offset-1 small-10 column pad-sm margin-top-md">
 
-            <form method="post" action="verify.php">
+            <form method="post" action="verify">
                 <div class="row pad-sm">
                     <div class="small-12 column">
                         <label>E-Mail</label>
