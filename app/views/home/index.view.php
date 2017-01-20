@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css"/>
     <!--Include Javascript Files-->
     <script src="../vendor/jquery/jquery-3.0.0.min.js"></script>
-    <script src="../js/ehr.js"></script>
 
 </head>
 <body>
@@ -22,10 +21,10 @@
         <img src="../images/logo.png" alt="logo.png">
     </div>
     <ul class="nav">
-        <a href="home"><li class="active"><i class="fa fa-home"></i> Home</li></a>
-        <a href="home/feedback"><li><i class="fa fa-bell-o"></i> Feedback</li></a>
-        <a href="home/setting"><li><i class="fa fa-cog"></i> Settings</li></a>
-        <a href="home/logout"><li class="logout"><i class="fa fa-sign-out"></i> Logout</li></a>
+        <a href="/home"><li class="active"><i class="fa fa-home"></i> Home</li></a>
+        <a href="/home/feedback"><li><i class="fa fa-bell-o"></i> Feedback</li></a>
+        <a href="/home/setting"><li><i class="fa fa-cog"></i> Settings</li></a>
+        <a href="/home/logout"><li class="logout"><i class="fa fa-sign-out"></i> Logout</li></a>
     </ul>
 
     <div class="search">
@@ -38,13 +37,13 @@
     <div id="nav">
 
         <ul class="menu">
-            <a href=""><li><i class="fa fa-money"></i> Administration and Billing</li></a>
-            <a href=""><li><i class="fa fa-plus-square"></i> Medical History</li></a>
-            <a href=""><li class="active"><i class="fa fa-flask"></i> Lab and Test Results</li></a>
-            <a href=""><li><i class="fa fa-medkit"></i> Diagnosis</li></a>
-            <a href=""><li><i class="fa fa-user-plus"></i> Medications</li></a>
-            <a href=""><li><i class="fa fa-stethoscope"></i> Immunization</li></a>
-            <a href=""><li><i class="fa fa-user-md"></i> Allergies</li></a>
+            <a href="#" data-view-url="/home/ajax/billing"><li><i class="fa fa-money"></i> Administration and Billing</li></a>
+            <a href="#" data-view-url="/home/ajax/medhistory"><li><i class="fa fa-plus-square"></i> Medical History</li></a>
+            <a href="#" data-view-url="/home/ajax/laboratory"><li class="active"><i class="fa fa-flask"></i> Lab and Test Results</li></a>
+            <a href="#" data-view-url="/home/ajax/diagnosis"><li><i class="fa fa-medkit"></i> Diagnosis</li></a>
+            <a href="#" data-view-url="/home/ajax/medication"><li><i class="fa fa-user-plus"></i> Medications</li></a>
+            <a href="#" data-view-url="/home/ajax/immune"><li><i class="fa fa-stethoscope"></i> Immunization</li></a>
+            <a href="#" data-view-url="/home/ajax/allergies"><li><i class="fa fa-user-md"></i> Allergies</li></a>
         </ul>
     </div>
 
@@ -52,11 +51,16 @@
         <div class="info pad-xs bg-cloud fg-secondary">
             <i class="fa fa-info-circle"></i> <i>You're currently operating on Stephen Kowee.</i>
         </div>
-        <div class="row">
+        <div class="row loader">
+            <div class="column small-9 small-centered medium-centered large-centered text-center">
+                <img src="../images/loader.gif" style="width: 30px; height: 30px;">
+            </div>
 
         </div>
 
     </div>
 </div>
+
+<script src="../js/ehr.js"></script>
 </body>
 </html>
