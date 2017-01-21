@@ -16,6 +16,12 @@
 
 </head>
 <body>
+<div id="screenlock">
+    <div>
+        <img src="../images/loader.gif" style="width: 30px; height: 30px;"><br>
+        <i>Please wait a moment</i>
+    </div>
+</div>
 <div class="row full-width navbar">
     <div class="logo">
         <img src="../images/logo.png" alt="logo.png">
@@ -28,8 +34,10 @@
     </ul>
 
     <div class="search">
-        <input type="text" name="mrn" placeholder="Select by MRN">
-        <button type="button" name="mrn-search"><i class="fa fa-search"></i> </button>
+        <form id="mrn-select" method="post" action="/home/select">
+            <input type="text" name="mrn" placeholder="Select by MRN" required>
+            <button type="submit"><i class="fa fa-search"></i> </button>
+        </form>
     </div>
 </div>
 
@@ -37,9 +45,9 @@
     <div id="nav">
 
         <ul class="menu">
-            <a href="#" data-view-url="/home/ajax/billing"><li><i class="fa fa-money"></i> Administration and Billing</li></a>
+            <a href="#" data-view-url="/home/ajax/billing"><li class="active"><i class="fa fa-money"></i> Administration and Billing</li></a>
             <a href="#" data-view-url="/home/ajax/medhistory"><li><i class="fa fa-plus-square"></i> Medical History</li></a>
-            <a href="#" data-view-url="/home/ajax/laboratory"><li class="active"><i class="fa fa-flask"></i> Lab and Test Results</li></a>
+            <a href="#" data-view-url="/home/ajax/laboratory"><li><i class="fa fa-flask"></i> Lab and Test Results</li></a>
             <a href="#" data-view-url="/home/ajax/diagnosis"><li><i class="fa fa-medkit"></i> Diagnosis</li></a>
             <a href="#" data-view-url="/home/ajax/medication"><li><i class="fa fa-user-plus"></i> Medications</li></a>
             <a href="#" data-view-url="/home/ajax/immune"><li><i class="fa fa-stethoscope"></i> Immunization</li></a>
@@ -48,16 +56,23 @@
     </div>
 
     <div id="display" class="fg-secondary">
-        <div class="info pad-xs bg-cloud fg-secondary">
-            <i class="fa fa-info-circle"></i> <i>You're currently operating on Stephen Kowee.</i>
-        </div>
-        <div class="row loader">
-            <div class="column small-9 small-centered medium-centered large-centered text-center">
-                <img src="../images/loader.gif" style="width: 30px; height: 30px;">
+        <div class="info pad-xs bg-cloud fg-secondary row">
+            <div class="small-4 column">
+                <i class="whoami"> <i class="fa fa-user-md"></i> <b><?php echo $dr_name; ?></b></i>
             </div>
-
+            <div class="small-8 small-offset-0 text-right column">
+                <i class="fa fa-info-circle"></i> <b><i id="p-name"><?= $status; ?></i></b>
+            </div>
+        </div>
+        <!--loader container-->
+        <div class="middle-element" id="loader">
+            <img src="../images/loader.gif" style="width: 30px; height: 30px;"><br>
+            <i>Please wait a moment</i>
         </div>
 
+        <div id="information" class="row">
+
+        </div>
     </div>
 </div>
 

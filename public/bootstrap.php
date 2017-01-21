@@ -5,7 +5,8 @@ require "../vendor/autoload.php";
 
 sys\Session::start();
 
-//$config = require "../system/config.php";
+global $config;
+$config = require "../system/config.php";
 
 //$pdo = sys\Database\Connection::make($config['database']);
 

@@ -33,3 +33,8 @@ function Redirect($to)
     exit();
 
 }
+
+function loadConfig(){
+
+    return require "config.php";
+}

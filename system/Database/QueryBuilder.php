@@ -14,37 +14,39 @@ abstract class QueryBuilder
 {
 
     protected $pdo;
+    protected $table;
+    protected $mrn;
 
     public function __construct(\PDO $pdo){
 
         $this->pdo = $pdo;
     }
 
-    public function selectAll($table, $colums){
+    public function selectAll(array $colums){
 
-        $query = "select " . implode(", ", $colums) . " from {$table}";
+        $query = "select " . implode(", ", $colums) . " from {$this->table}";
 
         $statement = $this->pdo->prepare($query);
 
         $statement->execute();
 
-        return $statement->fetchAll();
+        return $statement->fetchAll(\PDO::FETCH_BOTH);
     }
 
-    public function selectWhere($table, $columns, $filter, $data){
+    public function selectWhere(array $columns, $mrn){
 
-        $query = "select ". implode(", ", $columns) . " from {$table} where {$filter} ";
+        $query = "select ". implode(", ", $columns) . " from {$this->table} where mrn = ? ";
 
         $statement = $this->pdo->prepare($query);
 
-        $statement->execute($data);
+        $statement->execute(array($mrn));
 
-        return $statement->fetchAll();
+        return $statement->fetchAll(\PDO::FETCH_BOTH);
     }
 
-    public function insert($table, $columns){
+    public function insert($columns){
 
-        $query = "INSERT INTO {$table} (". implode(", ", array_keys($columns)).") VALUES(".
+        $query = "INSERT INTO {$this->table} (". implode(", ", array_keys($columns)).") VALUES(".
             implode(", ", array_map(function($param){
                 return ":".$param;
             }, array_keys($columns))). ")";

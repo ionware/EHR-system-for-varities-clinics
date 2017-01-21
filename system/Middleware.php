@@ -33,5 +33,17 @@ class Middleware {
         }
     }
 
+    public static function requireMRN(){
+        /*
+         * Make sure MRN is flashed to Session before triggering
+         * any method on the PatientController Class
+         * */
+
+        if(!isset($_SESSION['mrn']) && ! Session::start()->get('mrn')){
+
+            die(view("/home/mrn-error", NULL));
+        }
+    }
+
 
 }

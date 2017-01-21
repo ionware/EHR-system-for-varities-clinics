@@ -3,18 +3,20 @@
 * List of helpful reuseable functions
 */
 
-function ajax(url, data, type){
+function postAjax(url, data, type, DOMElement){
     //Implements jQuery Ajax plugin to handle request
-
-    var result = {};
 
     $.ajax({
         url: url,
         data: data,
         method: type,
 
-        success: function(data){
-            result.data = data;
+        success: function(data, status, DOMElement){
+            if(data.status == 'success'){
+                DOMElement.text("");
+                DOMElement.text(data.data);
+                return true;
+            }
         },
         error: function(){
             //do nothing;
@@ -22,35 +24,53 @@ function ajax(url, data, type){
 
     });
 
-    return console.log(result);
+    //@Plugin Ends
 }
 
-function featureGet(){
+function featureGet(url, DOMElement){
     //Calls function ajax with the current url
 
-    var result = ajax(current_url, false, "GET");
-    return result;
+    var self = DOMElement;
+
+    $.get(url, function(data){
+        DOMElement.html(data);
+    })
 }
 
-function featurePost(url, data){
+function featurePost(url, data, DOMElement){
     //Calls function Ajax with the current URL with a POST
     //We are interested onl
 
-    var result = ajax(url, data, "POST");
+    var self = DOMElement;
 
-    if(result && typeof result == 'Object'){
+    $.ajax({
+        url: url,
+        data: data,
+        method: "POST",
 
-        if (result.status == 'success'){
-
-            return result.data;
-
-        } else {
-
-            return "Not success in JSON";
+        success: function(serverReply){
+            if(serverReply.status == 'success'){
+                self.text(serverReply.data);
+                return true;
+            }
+            self.text(serverReply.data);
+        },
+        error: function(){
+            //do nothing;
         }
-    } else {
-        return result;
+
+    });
+}
+
+function loader(bool){
+
+    if(bool){
+        $("#loader").show();
+        return;
     }
+
+    $("#loader").hide();
+
 }
 
 
@@ -61,6 +81,10 @@ function featurePost(url, data){
 //===============================MAIN=========================================//
 
 var current_url = "/home/ajax/billing";
+$(document).ready(function(){
+    featureGet("/home/ajax/billing", $("#information"));
+});
+
 
 $("a[data-view-url]").click(function(event){
 
@@ -69,6 +93,8 @@ $("a[data-view-url]").click(function(event){
     $(this).children('li').addClass('active');
     current_url = $(this).attr('data-view-url');
 
+    featureGet(current_url, $("#information"));
+
 
 });
 
@@ -76,10 +102,11 @@ $("a[data-view-url]").click(function(event){
 $("form#mrn-select").submit(function(event){
 
     event.preventDefault();
+    $("#information").html("");
 
-    //$("#screenlock").show();
+    featurePost("/home/select", $(this).serialize(), $("#p-name"));
+    featureGet("/home/ajax/billing", $("#information"));
 
-    var serv_recv = featurePost("/home/select", $(this).serialize());
-    alert(serv_recv);
+
 
 })

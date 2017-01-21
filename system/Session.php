@@ -18,7 +18,7 @@ class Session {
 
     public static function start(){
 
-        session_start();    //Starts Session
+        @session_start();    //Starts Session
         return new static;
     }
 

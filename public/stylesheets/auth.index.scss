@@ -22,6 +22,10 @@ body{
   border-left: 5px solid $primary-color;
 }
 
+#loader{
+  display: none;
+}
+
 #screenlock {
   position: fixed;
   height: 100vh;
@@ -38,6 +42,10 @@ body{
     top: 0; bottom: 0; left: 0; right: 0;
     margin: auto;
   }
+}
+
+#information {
+  padding: 15px;
 }
 
 //Classes
@@ -74,4 +82,8 @@ body{
   height: 150px;
   top: 0; bottom: 0; left: 0; right: 0;
   margin: auto;
+}
+
+.partial-header {
+  border-bottom: 1px solid darken($primary-color, 5%);
 }
