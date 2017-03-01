@@ -20,3 +20,6 @@ $route->post("home/select", "HomeController@setMrn");
 
 $route->get("home/ajax/billing", "PatientController@getBilling");
 $route->post("home/ajax/billing", "PatientController@postBilling");
+
+$route->get('home/ajax/allergy', 'PatientController@getAllergy');
+$route->post('home/ajax/allergy', 'PatientController@postAllergy');

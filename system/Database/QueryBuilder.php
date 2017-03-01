@@ -62,6 +62,7 @@ abstract class QueryBuilder
 
            // var_dump($e);
            // Let the error parse_silently for now
+            echo "Oops! Seem like something went wrong. Please contact the Medical Record Department.";
         }
 
         return false;

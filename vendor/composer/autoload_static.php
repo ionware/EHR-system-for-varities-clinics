@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit957c78bc2ecf38d62696da239787232a
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
@@ -14,6 +18,15 @@ class ComposerStaticInit957c78bc2ecf38d62696da239787232a
         'e' => 
         array (
             'ehr\\' => 4,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Translation\\' => 30,
+        ),
+        'C' => 
+        array (
+            'Carbon\\' => 7,
         ),
     );
 
@@ -25,6 +38,18 @@ class ComposerStaticInit957c78bc2ecf38d62696da239787232a
         'ehr\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Carbon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
     );
 

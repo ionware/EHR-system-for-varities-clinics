@@ -4,5 +4,8 @@
       "ehr\\" : "app",
       "sys\\" : "system"
     }
+  },
+  "require": {
+    "nesbot/carbon": "^1.22"
   }
 }

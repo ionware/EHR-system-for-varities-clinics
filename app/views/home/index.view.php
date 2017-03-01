@@ -46,12 +46,12 @@
 
         <ul class="menu">
             <a href="#" data-view-url="/home/ajax/billing"><li class="active"><i class="fa fa-money"></i> Administration and Billing</li></a>
-            <a href="#" data-view-url="/home/ajax/medhistory"><li><i class="fa fa-plus-square"></i> Medical History</li></a>
+            <a href="#" data-view-url="/home/ajax/history"><li><i class="fa fa-plus-square"></i> Medical History</li></a>
             <a href="#" data-view-url="/home/ajax/laboratory"><li><i class="fa fa-flask"></i> Lab and Test Results</li></a>
             <a href="#" data-view-url="/home/ajax/diagnosis"><li><i class="fa fa-medkit"></i> Diagnosis</li></a>
             <a href="#" data-view-url="/home/ajax/medication"><li><i class="fa fa-user-plus"></i> Medications</li></a>
-            <a href="#" data-view-url="/home/ajax/immune"><li><i class="fa fa-stethoscope"></i> Immunization</li></a>
-            <a href="#" data-view-url="/home/ajax/allergies"><li><i class="fa fa-user-md"></i> Allergies</li></a>
+            <a href="#" data-view-url="/home/ajax/immunization"><li><i class="fa fa-stethoscope"></i> Immunization</li></a>
+            <a href="#" data-view-url="/home/ajax/allergy"><li><i class="fa fa-user-md"></i> Allergies</li></a>
         </ul>
     </div>
 
