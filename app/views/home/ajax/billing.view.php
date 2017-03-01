@@ -13,7 +13,7 @@ if (!$billings){
 </div><br>
 
 
-<form method="post">
+<form method="post" action="/home/ajax/billing">
     <div class="row pad-tb-md">
         <div class="small-9 column">
             <label><b>Reason for Billing:</b></label>
@@ -78,7 +78,7 @@ if (!$billings){
         <td>Reason</td>
         <td>Payer Name</td>
         <td>Status</td>
-        <td>Data</td>
+        <td>Date</td>
     </tr>
     </thead>
 
@@ -107,7 +107,7 @@ if (!$billings){
             </div><br>
 
 
-            <form method="post">
+            <form method="post" action="/home/ajax/billing">
                 <div class="row pad-tb-md">
                     <div class="small-9 column">
                         <label><b>Reason for Billing:</b></label>

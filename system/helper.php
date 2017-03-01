@@ -35,6 +35,20 @@ function Redirect($to)
 }
 
 function loadConfig(){
+    /*
+     * Loads configuration file as per call
+     *
+     * */
 
     return require "config.php";
 }
+
+function hashString($byte){
+    /*
+     * Returns random string based on openssl_random_psuedo_string
+     *
+     */
+
+    return bin2hex(openssl_random_pseudo_bytes(rand(8, $byte)));
+}
+

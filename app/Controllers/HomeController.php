@@ -59,11 +59,11 @@ class HomeController
 
         $pdo = Connection::make($config['database']);
 
-        $query = $pdo->prepare("SELECT mrn, surname, firstname, lastname FROM Patients WHERE mrn = ?");
+        $query = $pdo->prepare("SELECT id, surname, firstname, lastname FROM patients WHERE id = ?");
         $query->execute(array($mrn));
 
         if ($patient = $query->fetch(\PDO::FETCH_OBJ)) {
-            $this->session->set("mrn", $patient->mrn);
+            $this->session->set("mrn", $patient->id);
             $fullname = $patient->surname . " " . $patient->firstname . " " . $patient->lastname;
             $this->session->set("patient_name", $fullname);
 

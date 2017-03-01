@@ -1,14 +1,11 @@
 <?php
-
 namespace ehr\Model;
 
 use sys\Database\QueryBuilder;
 
-class Billing extends QueryBuilder
+class Allergy extends QueryBuilder
 {
-
-
-    protected $table = "billings";
+    protected $table = 'allergies';
 
     public function __construct(\PDO $pdo, $mrn){
 

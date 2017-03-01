@@ -63,5 +63,7 @@ abstract class QueryBuilder
            // var_dump($e);
            // Let the error parse_silently for now
         }
+
+        return false;
     }
 }

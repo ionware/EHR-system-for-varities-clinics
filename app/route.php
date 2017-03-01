@@ -18,4 +18,5 @@ $route->post("home/select", "HomeController@setMrn");
  *
  * */
 
-$route->get("home/ajax/billing", "PatientController@billing");
+$route->get("home/ajax/billing", "PatientController@getBilling");
+$route->post("home/ajax/billing", "PatientController@postBilling");

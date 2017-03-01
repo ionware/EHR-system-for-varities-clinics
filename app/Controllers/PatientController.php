@@ -32,7 +32,7 @@ class PatientController
 
     }
 
-    public function billing(){
+    public function getBilling(){
 
         $billing = new Model\Billing($this->config, $this->getMrn());
 
@@ -43,7 +43,30 @@ class PatientController
                 "patient_name" => $this->session->get("patient_name")
             ));
 
+    }
 
+    public function postBilling(){
+        /*
+         * Serialize Billing POST data and Log it into Patient's
+         * Database Record. */
+
+        $formData = $_POST;
+        $formData["serial"] = hashString(10);
+        $formData["mrn"] = $this->session->get("mrn");
+
+        $reply = new Model\Billing($this->config, $this->getMrn());
+        $reply = $reply->insert($formData);
+        return header("Location: /home");
+    }
+
+    /*
+     * Controller Methods for Allergies
+     * */
+    public function getAllergy(){
+        $allergies = new Model\Allergy($this->config, $this->getMrn());
+    }
+
+    public function postAllergy(){
 
     }
 }
