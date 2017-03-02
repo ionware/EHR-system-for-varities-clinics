@@ -1,5 +1,5 @@
 <?php
-if (!$allergies){
+if (!$medications){
     echo "<br>";
     echo "<h5 style='text-align: center;'>Sorry. There's no Medication for {$patient_name} yet.</h4>"; ?>
     <br>
