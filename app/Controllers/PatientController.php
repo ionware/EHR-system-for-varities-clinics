@@ -108,4 +108,77 @@ class PatientController
         $reply->insert($formData);
         return header('Location: /home');
     }
+
+    /*
+     * Controller for Diagnosis
+     * */
+    public function getDiagnosis()
+    {
+        $diagnosis = new Model\Diagnosis($this->config, $this->getMrn());
+        return view('home/ajax/diagnosis', array(
+            "diagnosis" => $diagnosis->selectWhere(['diagnosis', 'symptoms', 'administer', 'created_at'], $this->getMrn()),
+            "patient_name" => $this->session->get("patient_name")
+        ));
+    }
+
+    public function postDiagnosis()
+    {
+        $formData = $_POST;
+        $formData['mrn'] = $this->session->get('mrn');
+        $formData['created_at'] = Carbon::now();
+        $formData['updated_at'] = Carbon::now();
+
+        $reply = new Model\Diagnosis($this->config, $this->getMrn());
+        $reply->insert($formData);
+        return header('Location: /home');
+    }
+
+    /*
+     * Controllers for Medication History
+     * */
+
+    public function getHistory()
+    {
+        $diagnosis = new Model\History($this->config, $this->getMrn());
+        return view('home/ajax/history', array(
+            "histories" => $diagnosis->selectWhere(['report', 'created_at'], $this->getMrn()),
+            "patient_name" => $this->session->get("patient_name")
+        ));
+    }
+
+    public function postHistory()
+    {
+        $formData = $_POST;
+        $formData['mrn'] = $this->session->get('mrn');
+        $formData['created_at'] = Carbon::now();
+        $formData['updated_at'] = Carbon::now();
+
+        $reply = new Model\History($this->config, $this->getMrn());
+        $reply->insert($formData);
+        return header('Location: /home');
+    }
+
+    /*
+     * Controllers for laboratory tests
+     * */
+    public function getLab()
+    {
+        $diagnosis = new Model\Diagnosis($this->config, $this->getMrn());
+        return view('home/ajax/diagnosis', array(
+            "diagnosis" => $diagnosis->selectWhere(['diagnosis', 'symptoms', 'administer', 'created_at'], $this->getMrn()),
+            "patient_name" => $this->session->get("patient_name")
+        ));
+    }
+
+    public function postLab()
+    {
+        $formData = $_POST;
+        $formData['mrn'] = $this->session->get('mrn');
+        $formData['created_at'] = Carbon::now();
+        $formData['updated_at'] = Carbon::now();
+
+        $reply = new Model\Laboratory($this->config, $this->getMrn());
+        $reply->insert($formData);
+        return header('Location: /home');
+    }
 }

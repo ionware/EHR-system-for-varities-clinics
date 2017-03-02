@@ -32,3 +32,9 @@ $route->post('home/ajax/diagnosis', 'PatientController@postDiagnosis');
 
 $route->get('home/ajax/immunization', 'PatientController@getImmunization');
 $route->post('home/ajax/immunization', 'PatientController@postImmunization');
+
+$route->get('home/ajax/history', 'PatientController@getHistory');
+$route->post('home/ajax/history', 'PatientController@postHistory');
+
+$route->get('home/ajax/laboratory', 'PatientController@getLab');
+$route->post('home/ajax/laboratory', 'PatientController@postLab');
