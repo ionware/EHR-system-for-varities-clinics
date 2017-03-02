@@ -23,3 +23,12 @@ $route->post("home/ajax/billing", "PatientController@postBilling");
 
 $route->get('home/ajax/allergy', 'PatientController@getAllergy');
 $route->post('home/ajax/allergy', 'PatientController@postAllergy');
+
+$route->get('home/ajax/medication', 'PatientController@getMedication');
+$route->post('home/ajax/medication', 'PatientController@postMedication');
+
+$route->get('home/ajax/diagnosis', 'PatientController@getDiagnosis');
+$route->post('home/ajax/diagnosis', 'PatientController@postDiagnosis');
+
+$route->get('home/ajax/immunization', 'PatientController@getImmunization');
+$route->post('home/ajax/immunization', 'PatientController@postImmunization');
