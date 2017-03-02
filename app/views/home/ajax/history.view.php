@@ -50,13 +50,16 @@ if (!$histories){
         </div>
     </div><br>
         <?php
-        foreach($diagnosis as $diagnose): ?>
-            <tr>
-                <td><?= $diagnose['diagnosis'] ?></td>
-                <td><?= $diagnose['symptoms'] ?></td>
-                <td><?= $diagnose['administer'] ?></td>
-                <td><?= \Carbon\Carbon::parse($diagnose['created_at'])->diffForHumans() ?></td>
-            </tr>
+        foreach($histories as $history): ?>
+            <div class="row pad-tb-md">
+                <div class="small-9 column" style="border-bottom: 1px solid #db7119;">
+                    <h6><?= \Carbon\Carbon::parse($history['created_at'])->toFormattedDateString(); ?></h6>
+                    <p>
+                        <?= $history['report']; ?>
+                    </p>
+                    <small><i>Added </i><b><?= \Carbon\Carbon::parse($history['created_at'])->diffForHumans(); ?></b></small>
+                </div>
+            </div>
         <?php endforeach; ?>
 </div>
 

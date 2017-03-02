@@ -139,9 +139,9 @@ class PatientController
 
     public function getHistory()
     {
-        $diagnosis = new Model\History($this->config, $this->getMrn());
+        $histories = new Model\History($this->config, $this->getMrn());
         return view('home/ajax/history', array(
-            "histories" => $diagnosis->selectWhere(['report', 'created_at'], $this->getMrn()),
+            "histories" => $histories->selectWhere(['report', 'created_at'], $this->getMrn()),
             "patient_name" => $this->session->get("patient_name")
         ));
     }
