@@ -68,7 +68,7 @@ class PatientController
     {
         $medications = new Model\Medication($this->config, $this->getMrn());
         return view('home/ajax/medication', array(
-            "medications" => $medications->selectWhere(['medication', 'reason', 'administer'], $this->getMrn()),
+            "medications" => $medications->selectWhere(['medication', 'reason', 'administer', 'created_at'], $this->getMrn()),
             "patient_name" => $this->session->get("patient_name")
         ));
     }
@@ -92,7 +92,7 @@ class PatientController
     {
         $immunizations = new Model\Immunization($this->config, $this->getMrn());
         return view('home/ajax/immunization', array(
-            "immunizations" => $immunizations->selectWhere(['vaccine', 'type', 'administer', 'next_dose'], $this->getMrn()),
+            "immunizations" => $immunizations->selectWhere(['vaccine', 'type', 'administer', 'next_dose', 'created_at'], $this->getMrn()),
             "patient_name" => $this->session->get("patient_name")
         ));
     }

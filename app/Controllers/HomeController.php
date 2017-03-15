@@ -1,7 +1,6 @@
 <?php
 namespace ehr\Controllers;
 
-use Carbon\Carbon;
 use sys\Middleware;
 use sys\Session;
 use sys\Database\Connection;
@@ -9,6 +8,7 @@ use sys\Database\Connection;
 class HomeController
 {
     protected $session;
+    protected $config;
 
     private function applyMiddleware()
     {
@@ -25,6 +25,7 @@ class HomeController
 
         $this->applyMiddleware();
         $this->session = new Session();
+        $this->config = require "../system/config.php";
     }
 
     public function index()
@@ -55,10 +56,7 @@ class HomeController
         header("Content-Type: application/json");
 
         $mrn = $_POST['mrn'];
-
-        $config = require "../system/config.php";
-
-        $pdo = Connection::make($config['database']);
+        $pdo = Connection::make($this->config['database']);
 
         $query = $pdo->prepare("SELECT id, surname, firstname, lastname FROM patients WHERE id = ?");
         $query->execute(array($mrn));
@@ -82,6 +80,33 @@ class HomeController
         ));
 
         exit();
+    }
+
+    public function getSettings()
+    {
+        return view('home/settings', NULL);
+    }
+
+    public function postSettings()
+    {
+        if (!($_POST['password'] === $_POST['password_comfirmation'])){
+            $this->session->set('error', "Password does not match password confirmation");
+
+            return header("Location: /home/setting");
+        }
+
+        $pdo = Connection::make($this->config['database']);
+        $stmt = $pdo->prepare("UPDATE clinicians SET password = ? WHERE id = ?");
+
+        if($stmt->execute([password_hash($_POST['password'], PASSWORD_BCRYPT), $this->session->get('id')]))
+        {
+            $this->session->set('info', "Password successfully updated!");
+            return header("Location: /home/setting");
+        }
+
+        $this->session->set('error', "Password could not be updated at the moment.");
+
+        return header("Location: /home/setting");
     }
 
 

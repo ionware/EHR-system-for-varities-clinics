@@ -11,6 +11,8 @@ $route->post("verify", "GuestController@verify");
 $route->get("home", "HomeController@index");
 $route->get("home/logout", "HomeController@logout");
 $route->post("home/select", "HomeController@setMrn");
+$route->get('home/setting', "HomeController@getSettings");
+$route->post('home/setting', "HomeController@postSettings");
 
 
 /*
