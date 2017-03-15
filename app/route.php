@@ -13,6 +13,7 @@ $route->get("home/logout", "HomeController@logout");
 $route->post("home/select", "HomeController@setMrn");
 $route->get('home/setting', "HomeController@getSettings");
 $route->post('home/setting', "HomeController@postSettings");
+$route->get('home/feedback', "HomeController@feedback");
 
 
 /*

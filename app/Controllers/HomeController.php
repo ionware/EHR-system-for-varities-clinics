@@ -109,5 +109,9 @@ class HomeController
         return header("Location: /home/setting");
     }
 
+    public function feedback(){
+        return header("location: /home");
+    }
+
 
 }
